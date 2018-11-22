@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <link href="StyleSheet.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+            <section>
+                <h1>
+                    <asp:Image runat="server" />
+                    super cool website
+                </h1>
+                it's so cool wow
+            </section>
+        </header>
+        <nav>
+            <section>
+                <div class="button-group">
+                    <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx" CssClass="button">Default.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/Content/CreateProgram.aspx" CssClass="button">CreateProgram.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/Content/EnrollStudent.aspx" CssClass="button">EnrollStudent.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/Content/FindProgram.aspx" CssClass="button">FindProgram.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/Content/FindStudent.aspx" CssClass="button">FindStudent.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/Content/ModifyStudent.aspx" CssClass="button">ModifyStudent.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/Content/RemoveStudent.aspx" CssClass="button">RemoveStudent.aspx</asp:HyperLink>
+                </div>
+            </section>
+        </nav>
+        <main>
+            <section>
+                <form id="form1" runat="server">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <section>
+                here's a totally awesome footer
+            </section>
+        </footer>
+    </div>
+</body>
+</html>

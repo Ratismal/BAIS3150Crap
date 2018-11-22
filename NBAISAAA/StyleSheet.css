@@ -1,0 +1,169 @@
+﻿body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+
+    font-family: sans-serif;
+    color: #eee;
+    background: #222;
+}
+
+section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    background: #111;
+    margin: 0;
+    padding: 15px 0;
+
+    flex: 0 0 auto;
+}
+
+footer {
+    width: 100%;
+    background: #111;
+    margin: 15px 0 0 0;
+    padding: 15px 0;
+
+    flex: 0 0 auto;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.content-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2.1em;
+}
+
+.marquee-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    height: 300px;
+}
+
+.marquee-wrap .marquee-content {
+    display: inline-block;
+    position: absolute;
+    animation: marquee 1s linear infinite;
+}
+
+.marquee-wrap .marquee-content img {
+    margin: 0;
+    padding: 0;
+}
+
+
+@keyframes marquee {
+    from {
+        left: 0;
+    } 
+    to {
+        left: -221.5px;
+    }
+}
+
+a {
+    color: #4bcaa3;
+    text-decoration: none;
+}
+
+
+.button {
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    background: rgb(46, 185, 101);
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+
+    box-sizing: border-box;
+}
+
+.button:hover {
+    background: rgb(40, 157, 86);
+}
+
+.button.submit {
+    width: 100%;
+    margin: 0;
+}
+
+a:hover {
+    color: #94edd2;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-group .button {
+    flex: 1 1 auto;
+}
+
+nav {
+    width: 100%;
+    background-color: #111;
+    padding: 10px 0;
+    margin: 0 0 15px 0;
+}
+
+input[type=text], select {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 1.1em;
+    border: none;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.85);
+    transition-duration: 0.3s;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+}
+
+input[type=text]:focus {
+    outline: none;
+    border: none;
+    border-bottom: 3px solid rgb(119, 234, 203);
+}
+
+.error-container {
+    margin-top: 10px;
+}
+
+.error-container span {
+    display: block;
+    margin: 3px 0;
+}
+
+code {
+    font-family: Consolas;
+}
+
+
+.header-img {
+    height: 50px;
+}
+
+nav {
+    display: none;
+}
+
+main {
+    margin-top: 20px;
+}
