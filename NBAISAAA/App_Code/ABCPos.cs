@@ -9,10 +9,12 @@ using System.Web;
 public class ABCPos
 {
     Items Items;
+    Customers Customers;
 
     public ABCPos()
     {
         Items = new Items();
+        Customers = new Customers();
     }
 
     public List<Item> GetItems()
@@ -38,5 +40,30 @@ public class ABCPos
     public Item GetItem(string ItemCode)
     {
         return Items.GetItem(ItemCode);
+    }
+
+    public List<Customer> GetCustomers()
+    {
+        return Customers.GetCustomers();
+    }
+
+    public bool DeleteCustomer(int CustomerID)
+    {
+        return Customers.DeleteCustomer(CustomerID);
+    }
+
+    public bool AddCustomer(Customer customer)
+    {
+        return Customers.AddCustomer(customer);
+    }
+
+    public bool UpdateCustomer(Customer customer)
+    {
+        return Customers.UpdateCustomer(customer);
+    }
+
+    public Customer GetCustomer(int CustomerID)
+    {
+        return Customers.GetCustomer(CustomerID);
     }
 }

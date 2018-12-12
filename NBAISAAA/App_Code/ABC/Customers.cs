@@ -60,7 +60,7 @@ public class Customers
         return true;
     }
 
-    public List<Customer> GetCustomer()
+    public List<Customer> GetCustomers()
     {
         using (var db = DatabaseHelper.GetDataContext("KMorrill2"))
         {
