@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Web;
 
@@ -11,8 +12,14 @@ public static class DatabaseHelper
     public static SqlConnection GetDatabaseConnection(string DBName)
     {
         var connection = new SqlConnection();
-        connection.ConnectionString = string.Format("Persist Security Info=False;Integrated Security=True;Database={0};server=(localdb)\\MSSQLLocalDB;", DBName);
+        connection.ConnectionString = string.Format("Persist Security Info=False;Integrated Security=True;Database={0};server=DATABAIST;", DBName);
         return connection;
+    }
+
+    public static DataContext GetDataContext(string DBName)
+    {
+        var db = new DataContext(string.Format("Persist Security Info=False;Integrated Security=True;Database={0};server=DATABAIST;", DBName));
+        return db;
     }
 
     public static SqlCommand GetDatabaseProcedure(string name, SqlConnection conn)

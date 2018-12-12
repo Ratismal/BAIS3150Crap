@@ -6,6 +6,8 @@
     <h2>Default Page</h2>
     <p>this is the default page wow so neat</p>
 
+    <p>For ABC Hardware, see <asp:HyperLink runat="server" NavigateUrl="~/ABC/Default.aspx">here</asp:HyperLink>!</p>
+
     <br />
     <div class="marquee-wrap">
         <div class="marquee-content">

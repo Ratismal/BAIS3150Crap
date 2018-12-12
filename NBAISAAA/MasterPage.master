@@ -32,6 +32,16 @@
                     <asp:HyperLink runat="server" NavigateUrl="~/Content/ModifyStudent.aspx" CssClass="button">ModifyStudent.aspx</asp:HyperLink>
                     <asp:HyperLink runat="server" NavigateUrl="~/Content/RemoveStudent.aspx" CssClass="button">RemoveStudent.aspx</asp:HyperLink>
                 </div>
+                <div class="button-group">
+                    <asp:HyperLink runat="server" NavigateUrl="~/ABC/Default.aspx" CssClass="button">Default.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/ABC/AddItem.aspx" CssClass="button">AddItem.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/ABC/UpdateItem.aspx" CssClass="button">UpdateItem.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/ABC/DeleteItem.aspx" CssClass="button">DeleteItem.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/ABC/AddCustomer.aspx" CssClass="button">AddCustomer.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/ABC/UpdateCustomer.aspx" CssClass="button">UpdateCustomer.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/ABC/DeleteCustomer.aspx" CssClass="button">DeleteCustomer.aspx</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/ABC/ProcessSale.aspx" CssClass="button">ProcessSale.aspx</asp:HyperLink>
+                </div>
             </section>
         </nav>
         <main>
