@@ -134,7 +134,7 @@ nav {
     margin: 0 0 15px 0;
 }
 
-input[type=text], select {
+input, select {
     padding: 5px;
     margin-bottom: 10px;
     width: 100%;
@@ -147,7 +147,7 @@ input[type=text], select {
 
 }
 
-input[type=text]:focus {
+input:focus {
     outline: none;
     border: none;
     border-bottom: 3px solid rgb(119, 234, 203);
