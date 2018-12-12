@@ -23,6 +23,8 @@ public class Customer
     public string Province { get; set; }
     [Column()]
     public string PostalCode { get; set; }
+    [Column()]
+    public bool Deleted { get; set; }
 
     [Association(OtherKey ="CustomerID")]
     public EntitySet<Sale> Sales { get; set; }
