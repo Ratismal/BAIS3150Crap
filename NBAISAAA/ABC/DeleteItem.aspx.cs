@@ -32,10 +32,10 @@ public partial class ABC_DeleteItem : System.Web.UI.Page
             items = manager.GetItems();
             ItemsList.DataSource = items;
             ItemsList.DataBind();
-            MessageLabel.Text = "Successfully deleted!";
+            MessageLabel.InnerText = "Successfully deleted!";
         } else
         {
-            MessageLabel.Text = "Could not delete!";
+            MessageLabel.InnerText = "Could not delete!";
         }
     }
 }

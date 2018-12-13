@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:Label runat="server" ID="MessageLabel"/>
+    <div runat="server" id="MessageLabel" class="message-label"></div>
     <asp:DropDownList runat="server" ID="ItemsList" />
 
     <asp:LinkButton runat="server" ID="DeleteButton" OnClick="DeleteButton_Click" CssClass="button delete">Delete</asp:LinkButton>

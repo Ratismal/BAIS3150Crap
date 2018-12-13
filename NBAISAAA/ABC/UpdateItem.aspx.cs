@@ -57,7 +57,7 @@ public partial class ABC_UpdateItem : System.Web.UI.Page
 
         if (Description.Text.Length <= 0)
         {
-            MessageLabel.InnerText += "Description is required. ";
+            MessageLabel.InnerText += "Description is required.\n";
         }
         item.Description = Description.Text;
         try
@@ -67,20 +67,20 @@ public partial class ABC_UpdateItem : System.Web.UI.Page
         }
         catch
         {
-            MessageLabel.InnerText += "UnitPrice must be a decimal. ";
+            MessageLabel.InnerText += "UnitPrice must be a decimal.\n";
         }
         try
         {
             int quant = Convert.ToInt32(QuantityOnHand.Text);
             if (quant < 0)
             {
-                MessageLabel.InnerText += "QuantityOnHand must be positive or 0. ";
+                MessageLabel.InnerText += "QuantityOnHand must be positive or 0.\n";
             }
             else item.QuantityOnHand = quant;
         }
         catch
         {
-            MessageLabel.InnerText += "QuantityOnHand must be an integer. ";
+            MessageLabel.InnerText += "QuantityOnHand must be an integer.\n";
         }
         item.Deleted = false;
         if (!string.IsNullOrWhiteSpace(MessageLabel.InnerText))

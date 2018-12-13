@@ -178,3 +178,8 @@ nav {
 main {
     margin-top: 20px;
 }
+
+.message-label {
+    white-space: pre-wrap;
+    margin-bottom: 1rem;
+}

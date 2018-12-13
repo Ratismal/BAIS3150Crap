@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -8,8 +9,8 @@ using System.Web.UI.WebControls;
 public partial class ABC_UpdateCustomer : System.Web.UI.Page
 {
     ABCPos manager;
-    List<Item> items;
-    string itemcode;
+    List<Customer> customers;
+    int customerid;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -24,70 +25,63 @@ public partial class ABC_UpdateCustomer : System.Web.UI.Page
 
     private void bind()
     {
-        items = manager.GetItems();
+        customers= manager.GetCustomers();
 
-        ItemsList.DataSource = items;
+        ItemsList.DataSource = customers;
         ItemsList.DataTextField = "Serialized";
-        ItemsList.DataValueField = "ItemCode";
+        ItemsList.DataValueField = "CustomerID";
         ItemsList.DataBind();
 
     }
 
     private void populate()
     {
-        items = manager.GetItems();
+        customers = manager.GetCustomers();
         var i = ItemsList.SelectedIndex;
-        if (i >= 0 && i < items.Count())
+        if (i >= 0 && i < customers.Count())
         {
-            var item = items[i];
-            itemcode = item.ItemCode;
-            Description.Text = item.Description;
-            UnitPrice.Text = item.UnitPrice.ToString();
-            QuantityOnHand.Text = item.QuantityOnHand.ToString();
+            var item = customers[i];
+            customerid = item.CustomerID;
+            CustomerName.Text = item.CustomerName;
+            Address.Text = item.Address;
+            PostalCode.Text = item.PostalCode;
+            City.Text = item.City;
+            Province.Text = item.Province;
+        }
+    }
+
+    private void validate(bool exp, string message)
+    {
+        if (!exp)
+        {
+            MessageLabel.InnerText += message + " \n";
         }
     }
 
     protected void SubmitButton_Click(object sender, EventArgs e)
     {
-        MessageLabel.InnerText = "";
-        var item = new Item();
-        items = manager.GetItems();
+        var customer = new Customer()
+        {
+            CustomerName = CustomerName.Text,
+            Address = Address.Text,
+            City = City.Text,
+            Province = Province.Text,
+            PostalCode = PostalCode.Text,
+            Deleted = false
+        };
 
-        item.ItemCode = items[ItemsList.SelectedIndex].ItemCode;
+        MessageLabel.InnerText = customer.validate();
 
-        if (Description.Text.Length <= 0)
-        {
-            MessageLabel.InnerText += "Description is required. ";
-        }
-        item.Description = Description.Text;
-        try
-        {
-            decimal price = Convert.ToDecimal(UnitPrice.Text);
-            item.UnitPrice = price;
-        }
-        catch
-        {
-            MessageLabel.InnerText += "UnitPrice must be a decimal. ";
-        }
-        try
-        {
-            int quant = Convert.ToInt32(QuantityOnHand.Text);
-            if (quant < 0)
-            {
-                MessageLabel.InnerText += "QuantityOnHand must be positive or 0. ";
-            }
-            else item.QuantityOnHand = quant;
-        }
-        catch
-        {
-            MessageLabel.InnerText += "QuantityOnHand must be an integer. ";
-        }
-        item.Deleted = false;
+        customers = manager.GetCustomers();
+
+        customer.CustomerID = customers[ItemsList.SelectedIndex].CustomerID;
+
+       
         if (!string.IsNullOrWhiteSpace(MessageLabel.InnerText))
         {
             return;
         }
-        else if (manager.UpdateItem(item))
+        else if (manager.UpdateCustomer(customer))
         {
             ResetButton_Click(sender, e);
             MessageLabel.InnerText = "Successfully updated item.";
@@ -101,9 +95,11 @@ public partial class ABC_UpdateCustomer : System.Web.UI.Page
 
     protected void ResetButton_Click(object sender, EventArgs e)
     {
-        Description.Text = "";
-        UnitPrice.Text = "";
-        QuantityOnHand.Text = "";
+        CustomerName.Text = "";
+        Address.Text = "";
+        PostalCode.Text = "";
+        City.Text = "";
+        Province.Text = "";
         bind();
         populate();
     }

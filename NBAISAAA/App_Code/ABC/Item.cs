@@ -11,21 +11,24 @@ using System.Web;
 [Table(Name = "Item")]
 public class Item
 {
-    private EntitySet<SaleItem> _SaleItems;
     public Item()
     {
-        this._SaleItems = new EntitySet<SaleItem>();
+        this.SaleItems = new EntitySet<SaleItem>();
     }
+
     [Column(IsPrimaryKey = true)]
     public string ItemCode { get; set; }
-    [Column()]
+    [Column]
     public string Description { get; set; }
-    [Column()]
+    [Column]
     public decimal UnitPrice { get; set; }
-    [Column()]
+    [Column]
     public int QuantityOnHand { get; set; }
-    [Column()]
+    [Column]
     public bool Deleted { get; set; }
+
+    [Association(OtherKey = "ItemCode", ThisKey = "ItemCode", IsForeignKey = true)]
+    public EntitySet<SaleItem> SaleItems { get; set; }
 
     public string Serialized
     {

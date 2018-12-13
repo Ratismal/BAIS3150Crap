@@ -12,14 +12,18 @@ using System.Xml.Linq;
 [Table(Name = "SaleItem")]
 public class SaleItem
 {
+    [Column(IsPrimaryKey = true)]
     public int SaleNumber { get; set; }
+    [Column(IsPrimaryKey = true)]
     public string ItemCode { get; set; }
+    [Column]
     public int Quantity { get; set; }
+    [Column]
     public decimal ItemTotal { get; set; }
 
-    [Association(OtherKey = "ItemCode")]
+    [Association(OtherKey = "ItemCode", ThisKey = "ItemCode", IsForeignKey = true)]
     public Item Item { get; set; }
 
-    [Association(OtherKey = "SaleNumber")]
+    [Association(OtherKey = "SaleNumber", ThisKey = "SaleNumber", IsForeignKey = true)]
     public Sale Sale { get; set; }
 }

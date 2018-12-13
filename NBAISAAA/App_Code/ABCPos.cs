@@ -10,11 +10,13 @@ public class ABCPos
 {
     Items Items;
     Customers Customers;
+    Sales Sales;
 
     public ABCPos()
     {
         Items = new Items();
         Customers = new Customers();
+        Sales = new Sales();
     }
 
     public List<Item> GetItems()
@@ -65,5 +67,10 @@ public class ABCPos
     public Customer GetCustomer(int CustomerID)
     {
         return Customers.GetCustomer(CustomerID);
+    }
+
+    public bool ProcessSale(string Salesperson, int CustomerID, List<SaleItem> items)
+    {
+        return Sales.ProcessSale(Salesperson, CustomerID, items);
     }
 }

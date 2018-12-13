@@ -8,35 +8,35 @@ using System.Web.UI.WebControls;
 public partial class ABC_DeleteCustomer : System.Web.UI.Page
 {
     ABCPos manager;
-    List<Item> items;
+    List<Customer> customers;
     protected void Page_Load(object sender, EventArgs e)
     {
         manager = new ABCPos();
 
-        items = manager.GetItems();
+        customers = manager.GetCustomers();
 
         if (!IsPostBack)
         {
-            ItemsList.DataSource = items;
+            ItemsList.DataSource = customers;
             ItemsList.DataTextField = "Serialized";
-            ItemsList.DataValueField = "ItemCode";
+            ItemsList.DataValueField = "CustomerID";
             ItemsList.DataBind();
         }
     }
 
     protected void DeleteButton_Click(object sender, EventArgs e)
     {
-        var value = ItemsList.SelectedValue;
-        if (manager.DeleteItem(value))
+        var value = Convert.ToInt32(ItemsList.SelectedValue);
+        if (manager.DeleteCustomer(value))
         {
-            items = manager.GetItems();
-            ItemsList.DataSource = items;
+            customers = manager.GetCustomers();
+            ItemsList.DataSource = customers;
             ItemsList.DataBind();
-            MessageLabel.Text = "Successfully deleted!";
+            MessageLabel.InnerText = "Successfully deleted!";
         }
         else
         {
-            MessageLabel.Text = "Could not delete!";
+            MessageLabel.InnerText = "Could not delete!";
         }
     }
 }

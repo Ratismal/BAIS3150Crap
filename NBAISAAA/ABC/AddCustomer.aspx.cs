@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,13 +13,28 @@ public partial class ABC_AddCustomer : System.Web.UI.Page
     {
         manager = new ABCPos();
     }
+    private void validate(bool exp, string message)
+    {
+        if (!exp)
+        {
+            MessageLabel.InnerText += message + " \n";
+        }
+    }
 
     protected void SubmitButton_Click(object sender, EventArgs e)
     {
-        MessageLabel.InnerText = "a";
-        var customer = new Customer();
-       
-        customer.Deleted = false;
+        var customer = new Customer()
+        {
+            CustomerName = CustomerName.Text,
+            Address = Address.Text,
+            City = City.Text,
+            Province = Province.Text,
+            PostalCode = PostalCode.Text,
+            Deleted = false
+        };
+
+        MessageLabel.InnerText = customer.validate();
+
         if (!string.IsNullOrWhiteSpace(MessageLabel.InnerText))
         {
             return;

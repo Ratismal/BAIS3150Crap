@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div runat="server" id="MessageLabel"></div>
+    <div runat="server" id="MessageLabel" class="message-label"></div>
 
     <asp:Label runat="server">ItemCode</asp:Label>
     <asp:TextBox runat="server" ID="ItemCode" MaxLength="6"></asp:TextBox>

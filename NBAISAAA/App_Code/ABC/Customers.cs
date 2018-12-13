@@ -36,7 +36,7 @@ public class Customers
         {
             var Customers= db.GetTable<Customer>();
             var existing = Customers.Where(c => customer.CustomerID == c.CustomerID).First();
-            existing.Customername = customer.Customername;
+            existing.CustomerName = customer.CustomerName;
             existing.Address = customer.Address;
             existing.City = customer.City;
             existing.Province = customer.Province;
