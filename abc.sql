@@ -21,7 +21,7 @@ CREATE TABLE Customer (
 
 ALTER TABLE Customer
   ADD CONSTRAINT PK_CustomerID PRIMARY KEY (CustomerID),
-      CONSTRAINT CK_PostalCode CHECK (PostalCode LIKE '[a-Z][0-9][a-Z] [0-9][a-Z][0-9]'),
+      CONSTRAINT CK_PostalCode CHECK (PostalCode LIKE '[A-Z][0-9][A-Z] [0-9][A-Z][0-9]'),
       CONSTRAINT CK_CustomerID CHECK (CustomerID >= 1);
 
 CREATE TABLE Item (
