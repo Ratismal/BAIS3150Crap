@@ -210,3 +210,11 @@ CREATE PROCEDURE DeleteCustomer(@CustomerID INT) AS
   RETURN @ReturnCode
 
 select * from item;
+
+select * from item;
+
+CREATE USER aspnet FOR LOGIN [NAIT\WEBBAIST$];
+GRANT SELECT, INSERT, DELETE, UPDATE ON Item TO aspnet;
+GRANT SELECT, INSERT, DELETE, UPDATE ON SaleItem TO aspnet;
+GRANT SELECT, INSERT, DELETE, UPDATE ON Sale TO aspnet;
+GRANT SELECT, INSERT, DELETE, UPDATE ON Customer TO aspnet;
